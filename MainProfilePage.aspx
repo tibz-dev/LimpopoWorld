@@ -1,0 +1,164 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainProfilePage.aspx.cs" Inherits="LimpopoWorld.MainProfilePage" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Main Profile Page</title>
+    <style type="text/css">
+        body {
+            font-family: "system-ui";
+            background: linear-gradient(to right bottom, #8E0E00, #1F1C18);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: auto;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        li {
+            float: left;
+            border-right: 1px solid #bbb;
+        }
+        li:last-child {
+            border-right: none;
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+        .active {
+            background-color: #04AA6D;
+        }
+        .welcome {
+            text-align: center;
+            margin: 20px 0;
+            color: white;
+        }
+        .tour {
+            background-image: url('Pics/homepage.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0.8;
+        }
+        .tour h2 {
+            margin: 0;
+            padding: 0;
+        }
+        .label-info {
+            color: white;
+            background-color: black;
+            opacity: 0.7;
+            padding: 20px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .square, .star {
+            position: absolute;
+            display: table;
+        }
+        .square {
+            height: 100vh;
+            width: 50vw;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+        }
+        .square.square-tl {
+            top: -80%;
+            left: -10%;
+            animation: bounce 6s infinite ease-in-out;
+            background: rgb(34, 34, 34, 0.1);
+            z-index: 50;
+        }
+        .square.square-tr {
+            top: 0%;
+            right: -30%;
+            animation: bounce 5s infinite ease-in-out;
+        }
+        .square.square-bl {
+            bottom: -70%;
+            left: -15%;
+            animation: bounce 4s infinite ease-in-out;
+        }
+        .square.square-br {
+            bottom: 0%;
+            right: -40%;
+            animation: bounce 3s infinite ease-in-out;
+            background: rgb(34, 34, 34, 0.1);
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0px) rotate(45deg); }
+            50% { transform: translateY(20px) rotate(45deg); border-radius: 50px; }
+            100% { transform: translateY(0px) rotate(45deg); }
+        }
+        .star {
+            height: 50px;
+            width: 50px;
+            box-shadow: 0 0 5px 0 rgba(34, 34, 34, 0.5);
+            transition: 0.5s;
+        }
+        .star.star1 {
+            bottom: -10%;
+            left: -30%;
+            transform: rotate(-30deg);
+            animation: sweep 4s infinite;
+            background: rgba(34, 34, 34, 0.5);
+        }
+        .star.star2 {
+            bottom: -30%;
+            left: -10%;
+            transform: rotate(-30deg);
+            animation: sweep 3s infinite;
+            background: rgb(255, 255, 255, 0.5);
+        }
+        @keyframes sweep {
+            100% { bottom: 120%; left: 120%; transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <ul class="nav navbar-nav navbar-left">
+            <li><a href="/usercrud.aspx">Profile</a></li>
+            <li><a href="/DisplayTours.aspx">Tours</a></li>
+            <li><a href="/Order.aspx">Book Tour</a></li>
+            <li><a href="/userBookings.aspx">Bookings Info</a></li>
+        </ul>
+        <div class="welcome">
+            <asp:Label ID="Label1" runat="server"></asp:Label>
+        </div>
+        <div class="tour">
+            <h2>Explore the Tours!</h2>
+            <a class="btn btn-primary" href="/DisplayTours.aspx" style="width:300px; height:50px; font-size:x-large;">Explore the Tours!</a>
+            <p class="label-info">
+                Find the best tour packages without any hustle.<br />
+                Book and pack your luggage.
+            </p>
+        </div>
+        <span class="square square-tr"></span>
+        <span class="square square-bl"></span>
+        <span class="square square-br"></span>
+        <span class="star star1"></span>
+        <span class="star star2"></span>
+    </form>
+</body>
+</html>
